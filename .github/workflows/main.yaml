@@ -4,17 +4,18 @@ on:
  branches: [ "main" ]
 jobs:
  test:
- runs-on: ubuntu-latest
- steps:
-  name: Checkout code
- uses: actions/checkout@v3
-  name: Set up Java
- uses: actions/setup-python@v4
- with:
- java-version: '11'
+  runs-on: ubuntu-latest
+  steps:
+   -name: Checkout code
+    uses: actions/checkout@v3
+    
+   -name: Set up Java 
+    uses: actions/setup-python@v4
+    with:
+     java-version: '11'
 
-  name: Compile
- run: javac Feature3Test.java 
+   -name: Compile
+    run: javac Feature3Test.java 
  
-  name: Run my tests
- run: java -m unittest Feature3Test.class
+   -name: Run my tests
+    run: java -m unittest Feature3Test.class
